@@ -1,0 +1,48 @@
+{
+	"name": "electron-vue-new",
+	"version": "0.1.0",
+	"description": "A electron vue project",
+	"author": "duligang <1399477141@qq.com>",
+  "license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "npm run electron:serve",
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint",
+		"electron:build": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service electron:build",
+		"electron:serve": "vue-cli-service electron:serve",
+		"postinstall": "electron-builder install-app-deps",
+		"postuninstall": "electron-builder install-app-deps"
+	},
+	"main": "background.js",
+	"dependencies": {
+		"axios": "0.21.1",
+		"core-js": "3.36.0",
+		"electron-updater": "6.1.8",
+		"element-ui": "2.15.14",
+		"normalize.css": "8.0.1",
+		"vue": "2.6.11",
+		"vue-router": "3.6.5",
+		"vuex": "3.6.2"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "4.4.6",
+		"@vue/cli-plugin-eslint": "4.4.6",
+		"@vue/cli-plugin-router": "4.4.6",
+		"@vue/cli-plugin-vuex": "4.4.6",
+		"@vue/cli-service": "4.4.6",
+		"@vue/eslint-config-prettier": "6.0.0",
+		"autoprefixer": "9.8.8",
+		"babel-eslint": "10.1.0",
+		"electron": "28.2.7",
+		"eslint": "6.8.0",
+		"eslint-plugin-prettier": "3.4.1",
+		"eslint-plugin-vue": "6.2.2",
+		"prettier": "1.19.1",
+		"sass": "1.26.5",
+		"sass-loader": "8.0.2",
+		"vue-cli-plugin-electron-builder": "2.1.1",
+		"vue-template-compiler": "2.6.11"
+	}
+}

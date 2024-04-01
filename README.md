@@ -121,3 +121,9 @@ if (!isDevelopment) {
 ```
 - autoUpdater相关API请参考：[electron-build：autoUpdater](https://www.electron.build/auto-update#events)
 - 本项目中的更新为全量更新，就是整个应用程序更新，但在实际场景中，有可能有时只是页面资源文件更新，此时全量更新可能不是很必要，只想更新前端资源，那就需要部分更新，即非全量更新，此项目中没有写，但本人以前写的一篇文章里有如何实现非全量更新的方法，具体请参考：[非全量更新](https://blog.csdn.net/DLGDark/article/details/123693142)
+
+
+#### 正式项目中可能出现路由页面跳转404页面的问题及解决方案
+- 将web后台项目使用electron打包后，可能出现点击路由菜单页面出现404页面情况，一般是因为路由路径问题导致，因为路由菜单处理页面里代码`path.resolve`中的path模块，默认操作会因 Node.js 应用程序运行所在的操作系统而异。 具体来说，当在 Windows 操作系统上运行时， path模块会假定正被使用的是 Windows 风格的路径。
+- 解决方案：使用node中path里的posix API，代码变为`path.posix.resolve`，path.posix 属性提供对 path 方法的 POSIX 特定实现的访问。(意思就是无视操作系统的不同，统一为 POSIX方式，这样可以确保在任何系统上结果保持一致)。相关学习文章：[path.posix](https://blog.csdn.net/DLGDark/article/details/115553378)
+- 此框架内不含有后台项目模板代码内容，此框架只作为electron-vue的替代框架，后台管理系统项目相关内容具体请自行学习~
